@@ -7,15 +7,14 @@ export class Recipe {
   public imagePath: string;
   public ingredients: Ingredient[];
 
-  private static nextId: number = 1;
-
   constructor(
+    id: number,
     name: string,
     description: string,
     imagePath: string,
     ingredients: Ingredient[]
   ) {
-    this.id = Recipe.nextId++;
+    this.id = id;
     this.name = name;
     this.description = description;
     this.imagePath = imagePath;
