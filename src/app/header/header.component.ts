@@ -7,15 +7,4 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class HeaderComponent {
   collapsed = true;
-  @Output() changeScreen = new EventEmitter<string>();
-
-  onClick(event: Event) {
-    event.preventDefault();
-    const target = (event.target as HTMLElement)
-      .closest('a')
-      ?.getAttribute('data-target');
-    if (target) {
-      this.changeScreen.emit(target);
-    }
-  }
 }
