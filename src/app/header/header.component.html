@@ -17,8 +17,10 @@
       (window:resize)="collapsed = true"
     >
       <ul class="nav navbar-nav">
-        <li routerLink="/recipes"><a data-target="Recipes">Recipes</a></li>
-        <li routerLink="/shoppingList">
+        <li routerLinkActive="active" routerLink="/recipes">
+          <a data-target="Recipes">Recipes</a>
+        </li>
+        <li routerLinkActive="active" routerLink="/shoppingList">
           <a data-target="Shopping List">Shopping List</a>
         </li>
       </ul>
