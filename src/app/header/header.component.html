@@ -16,9 +16,11 @@
       [class.collapse]="collapsed"
       (window:resize)="collapsed = true"
     >
-      <ul class="nav navbar-nav" (click)="onClick($event)">
-        <li><a data-target="Recipes">Recipes</a></li>
-        <li><a data-target="Shopping List">Shopping List</a></li>
+      <ul class="nav navbar-nav">
+        <li routerLink="/recipes"><a data-target="Recipes">Recipes</a></li>
+        <li routerLink="/shoppingList">
+          <a data-target="Shopping List">Shopping List</a>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown" appDropdown>
