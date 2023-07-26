@@ -14,7 +14,11 @@ export class RecipeDetailComponent {
 
   sendToShoppingList() {
     this.recipe.ingredients.forEach((ingredient) => {
-      this.shoppingListService.addIngredientToList(ingredient);
+      let found = this.shoppingListService.updateIngredientAmount(ingredient);
+
+      if (!found) {
+        this.shoppingListService.addIngredientToList(ingredient);
+      }
     });
   }
 }
