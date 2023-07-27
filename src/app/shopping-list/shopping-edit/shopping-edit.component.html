@@ -34,7 +34,7 @@
             type="submit"
             [disabled]="f.invalid"
           >
-            Add
+            {{ editMode ? "Edit" : "Add" }}
           </button>
           <button
             class="btn btn btn-danger"

@@ -9,8 +9,13 @@ import { Ingredient } from '../shared/ingredient.model';
 export class ShoppingListService {
   ingredientsChanged = new Subject<Ingredient[]>();
   ingredients: Ingredient[] = [];
+  startedEditing = new Subject<number>();
 
   constructor() {}
+
+  getIngredient(index: number) {
+    return this.ingredients[index];
+  }
 
   getIngredients() {
     return this.ingredients.slice();
@@ -18,7 +23,7 @@ export class ShoppingListService {
 
   addIngredientToList(ingredient: Ingredient) {
     this.ingredients.push(ingredient);
-    this.ingredientsChanged.next(this.ingredients);
+    this.ingredientsChanged.next(this.ingredients.slice());
   }
 
   updateIngredientAmount(ingredient: Ingredient) {
@@ -26,11 +31,16 @@ export class ShoppingListService {
     this.ingredients.forEach((existingIngredient) => {
       if (ingredient.name === existingIngredient.name) {
         existingIngredient.amount += ingredient.amount;
-        this.ingredientsChanged.next(this.ingredients);
+        this.ingredientsChanged.next(this.ingredients.slice());
         found = true;
       }
     });
 
     return found;
+  }
+
+  updateIngredient(index: number, newIngredient: Ingredient) {
+    this.ingredients[index] = newIngredient;
+    this.ingredientsChanged.next(this.ingredients.slice());
   }
 }
