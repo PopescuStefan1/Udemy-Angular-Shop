@@ -40,10 +40,14 @@
             class="btn btn btn-danger"
             style="margin-right: 0.5rem"
             type="button"
+            (click)="deleteIngredient(f)"
+            [disabled]="!editMode"
           >
             Delete
           </button>
-          <button class="btn btn-primary" type="button">Clear</button>
+          <button class="btn btn-primary" type="button" (click)="clearForm(f)">
+            Clear
+          </button>
         </div>
       </div>
     </form>
