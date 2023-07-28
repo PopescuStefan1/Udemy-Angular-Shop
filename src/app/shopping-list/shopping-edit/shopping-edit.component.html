@@ -41,7 +41,7 @@
             style="margin-right: 0.5rem"
             type="button"
             (click)="deleteIngredient(f)"
-            [disabled]="!editMode"
+            *ngIf="editMode"
           >
             Delete
           </button>
