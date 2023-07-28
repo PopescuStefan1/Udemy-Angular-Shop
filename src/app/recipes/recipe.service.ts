@@ -5,19 +5,16 @@ import { Subject } from 'rxjs';
 
 @Injectable()
 export class RecipeService {
-  private currentId = 3;
   recipesChanged = new Subject<Recipe[]>();
 
   private recipes: Recipe[] = [
     new Recipe(
-      1,
       'Schnitzel',
       'Tasty schnitzel',
       'https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80',
       [new Ingredient('Meat', 1), new Ingredient('French Fries', 20)]
     ),
     new Recipe(
-      2,
       'Burger',
       'Big fat burger',
       'https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80',
@@ -31,12 +28,8 @@ export class RecipeService {
     return this.recipes.slice();
   }
 
-  getRecipe(id: number) {
-    return this.recipes.find((ingredient) => ingredient.id == id);
-  }
-
-  resetIds() {
-    this.currentId = 1;
+  getRecipe(index: number) {
+    return this.recipes[index];
   }
 
   addRecipe(recipe: Recipe) {
@@ -44,10 +37,13 @@ export class RecipeService {
     this.recipesChanged.next(this.recipes.slice());
   }
 
-  updateRecipe(id: number, newRecipe: Recipe) {
-    const index = this.recipes.findIndex((recipe) => recipe.id === id);
+  updateRecipe(index: number, newRecipe: Recipe) {
     this.recipes[index] = newRecipe;
+    this.recipesChanged.next(this.recipes.slice());
+  }
 
+  deleteRecipe(index: number) {
+    this.recipes.splice(index, 1);
     this.recipesChanged.next(this.recipes.slice());
   }
 }

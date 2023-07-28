@@ -13,11 +13,7 @@ export class RecipesComponent implements OnInit, OnDestroy {
 
   constructor(private recipeService: RecipeService) {}
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
-  ngOnDestroy(): void {
-      this.recipeService.resetIds();
-  }
+  ngOnDestroy(): void {}
 }
