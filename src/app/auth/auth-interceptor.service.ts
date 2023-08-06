@@ -33,6 +33,5 @@ export class AuthInterceptorService implements HttpInterceptor {
         return next.handle(modifiedReq);
       })
     );
-    return next.handle(req);
   }
 }
