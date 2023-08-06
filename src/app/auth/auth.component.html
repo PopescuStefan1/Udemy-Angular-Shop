@@ -26,7 +26,11 @@
         />
       </div>
       <div>
-        <button class="btn btn-primary" [disabled]="authForm.invalid">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="authForm.invalid"
+        >
           {{ loginMode ? "Log in" : "Sign up" }}
         </button>
         |
