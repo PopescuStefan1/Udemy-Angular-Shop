@@ -27,17 +27,17 @@
         <li routerLinkActive="active" routerLink="/shoppingList">
           <a data-target="Shopping List">Shopping List</a>
         </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li *ngIf="isAuthenticated">
+          <a (click)="onLogout()">Logout</a>
+        </li>
         <li
           routerLinkActive="active"
           routerLink="/auth"
           *ngIf="!isAuthenticated"
         >
           <a data-target="Authenticate">Authenticate</a>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li *ngIf="isAuthenticated">
-          <a (click)="onLogout()">Logout</a>
         </li>
         <li class="dropdown" appDropdown *ngIf="isAuthenticated">
           <a class="dropdown-toggle" role="button"
