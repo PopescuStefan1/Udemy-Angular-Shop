@@ -35,7 +35,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   }
 
   addItem(ingredient: Ingredient) {
-    let found = this.shoppingListService.updateIngredientAmount(ingredient);
+    const found = this.shoppingListService.updateIngredientAmount(ingredient);
 
     if (!found) {
       this.shoppingListService.addIngredientToList(ingredient);
