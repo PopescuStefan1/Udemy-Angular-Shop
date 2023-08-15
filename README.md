@@ -1,3 +1,8 @@
+# Angular shop app
+
+This is a web app featuring a shop, built during the 'Angular - The Complete Guide (2023 Edition)' by Maximilian Schwarzmuller.
+To run the project locally, use `npm install` followed by `ng serve`.
+
 # Shop
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
