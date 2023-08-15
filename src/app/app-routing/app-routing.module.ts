@@ -9,6 +9,18 @@ const appRoutes: Routes = [
     loadChildren: () =>
       import('src/app/recipes/recipes.module').then((m) => m.RecipesModule),
   },
+  {
+    path: 'shoppingList',
+    loadChildren: () =>
+      import('src/app/shopping-list/shopping-list.module').then(
+        (m) => m.ShoppingListModule
+      ),
+  },
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('src/app/auth/auth.module').then((m) => m.AuthModule),
+  },
   // { path: '**', redirectTo: '/recipes' },
 ];
 

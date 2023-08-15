@@ -7,20 +7,11 @@ import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { RecipeService } from './recipes/recipe.service';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
-import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { SharedModule } from './shared/shared.module';
-import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    ShoppingListModule,
-    SharedModule,
-    AuthModule,
-  ],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, SharedModule],
   providers: [
     RecipeService,
     {
